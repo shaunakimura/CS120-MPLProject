@@ -37,7 +37,7 @@ int main() {
 
 string get_title() {
   string title_name;
-  cout << "Enter the name of a TV show or movie title: ";
+  cout << "Enter the name of a TV show or movie title (case insensitive): ";
   // Validate string is not empty
   getline(cin, title_name);
   while (title_name.empty()) {

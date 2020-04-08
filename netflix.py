@@ -5,7 +5,7 @@ import webbrowser
 
 # Store command line arguments in variables
 title = sys.argv[1]
-print(title)
+title = title.lower()
 try:
     # Append titles from csv file to list
     filename = "netflix_titles.csv"
@@ -13,7 +13,7 @@ try:
 
     netflix_data = {}
     for row in reader:
-        key = row[2]  # show/movie title
+        key = row[2].lower()  # show/movie title
         netflix_data[key] = row[1], row[7], row[8], row[11]
 
 
