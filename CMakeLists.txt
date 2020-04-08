@@ -3,4 +3,4 @@ project(MPL)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MPL main.cpp)
+add_executable(MPL main.cpp main.cpp)
