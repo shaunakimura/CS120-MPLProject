@@ -28,6 +28,7 @@ void search_netflix(string title);
 
 int main() {
   cout << "Let's use the Netflix search tool!" << endl;
+  cout << endl;
   string title_name = get_title();
 
   search_netflix(title_name);
@@ -37,7 +38,7 @@ int main() {
 
 string get_title() {
   string title_name;
-  cout << "Enter the name of a TV show or movie title (case insensitive): ";
+  cout << "Enter the name of a TV show or movie title: ";
   // Validate string is not empty
   getline(cin, title_name);
   while (title_name.empty()) {
