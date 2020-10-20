@@ -1,3 +1,7 @@
+# Shauna Kimura
+# CS120 MPL Final project
+# 4/7/20
+
 import bs4 as bs
 import csv
 import string
@@ -8,8 +12,8 @@ import webbrowser
 
 # Store command line arguments in variables
 title = sys.argv[1]
-# Make title case insensitive
 title = title.lower()
+
 try:
     # Append titles from csv file to list
     filename = "netflix_titles.csv"
@@ -17,19 +21,20 @@ try:
 
     netflix_data = {}
     for row in reader:
-        key = row[2].lower()  # show/movie title
-        # Store certain data from csv to dictionary
+        # Store show/movie titles as keys
+        key = row[2].lower()
+        # Store relevant data as key values
         netflix_data[key] = row[1], row[7], row[8], row[11]
 
     print()
     print("Scraping Netflix data...\n")
-    sleep(3) # Just for effect
+    sleep(3) # waiting effect
 
     # Display size of database
-    print("Netflix currently has", format(len(netflix_data), ",d"), "TV shows and movies.\n")
-    sleep(3) # Just for effect
+    print("As of 2019, Netflix includes", format(len(netflix_data), ",d"), "TV shows and movies.\n")
+    sleep(3) # waiting effect
 
-    # Check for title in list
+    # Check if title exists in dictionary
     if title in netflix_data:
         print(string.capwords(title), "is on Netflix!")
         print("------------------------------------------------")
@@ -47,9 +52,9 @@ try:
         sleep(10)
         webbrowser.open('https://www.netflix.com/browse', new=2)
     else:
-        print(title, "is not on Netflix.")
+        print("Sorry, ", title, "is not on Netflix. :-(")
 
-    # Display top 10 Netflix series using web scraper
+    # Srape and display top 10 current Netflix series from Rotten Tomatoes
     print()
     print("Best Netflix Series and Shows to Watch Right Now")
     print("------------------------------------------------")
@@ -65,7 +70,8 @@ try:
     for i in range(10):
         print("#", i + 1, ": ", top[i], sep='')
 
-    print("Happy Netflixing!")
+    print()
+    print("Happy Netflixing! :-)")
 
 
 # Error opening file
